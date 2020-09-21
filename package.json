@@ -1,0 +1,21 @@
+{
+  "name": "MongoDB-Atlas-Heroku-Todo-Demo",
+  "version": "1.0.0",
+  "description": "A simple Todo app to demo MongoDB Atlas setup and Heroku deployment",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daquilino/MongoDB-Atlas-Heroku-Todo-Demo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/daquilino/MongoDB-Atlas-Heroku-Todo-Demo/issues"
+  },
+  "homepage": "https://github.com/daquilino/MongoDB-Atlas-Heroku-Todo-Demo#readme"
+}
