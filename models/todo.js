@@ -8,7 +8,7 @@ const ToDoSchema = new Schema({
         required: 'String is Required'
     },
     
-    conpleted: {
+    completed: {
         type: Boolean,
         default: false
     }
