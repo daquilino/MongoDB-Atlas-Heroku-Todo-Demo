@@ -1,6 +1,6 @@
 console.log("js loaded.")
 
-const toDoUl = document.querySelector("#toDoUL");
+const toDoUl = document.querySelector("#toDoUl");
 const addToDoForm = document.querySelector("#addToDoForm");
 const addToDoInput = document.querySelector("#addToDoInput");
 
@@ -23,20 +23,28 @@ addToDoForm.addEventListener("submit", e => {
     })
     .finally(()=> window.location.reload());
 
-
 })
 
 
-
-
-
-
+// Fetches todos from db and renders them to ul
 function loadToDos(){
     fetch("/api/todo")
     .then(todos => todos.json())
     .then(todos => {
         console.log("loading todos")
         console.log(todos)
+
+        //clears ul before rendering li's
+        toDoUl.innerHTML = null;
+
+        todos.forEach(todo=>{
+
+            const newLi = document.createElement("li")
+            newLi.classList.add("list-group-item");
+            newLi.innerText = todo.task;
+
+            toDoUl.append(newLi);
+        })
     })
 }
 

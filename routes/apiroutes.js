@@ -12,8 +12,6 @@ Router.get("/todo", (req, res) => {
 // Create a todo
 Router.post("/todo", (req, res) => {
 
-    console.log(req.body)
-
     ToDo.create(req.body)
     .then(()=> res.sendStatus(200))
     .catch(err => res.sendStatus(500))
