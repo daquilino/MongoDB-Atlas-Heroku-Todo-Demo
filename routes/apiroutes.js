@@ -3,6 +3,7 @@ const ToDo = require('../models/todo.js')
 
 // Get all todos
 Router.get("/todo", (req, res) => {
+
     ToDo.find()
     .then(todos => res.json(todos))
     .catch(err=> res.sendStatus(500))
@@ -10,7 +11,10 @@ Router.get("/todo", (req, res) => {
 
 // Create a todo
 Router.post("/todo", (req, res) => {
-    ToDo.insert(req.body)
+
+    console.log(req.body)
+
+    ToDo.create(req.body)
     .then(()=> res.sendStatus(200))
     .catch(err => res.sendStatus(500))
 });
