@@ -6,7 +6,13 @@ const ToDoSchema = new Schema({
         type: String,
         trim: true,
         required: 'String is Required'
+    },
+    
+    conpleted: {
+        type: Boolean,
+        default: false
     }
+
 });
 
 const Model = mongoose.model('ToDo', ToDoSchema);
