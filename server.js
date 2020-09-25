@@ -19,6 +19,8 @@ Mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/tododemodb', {
   useUnifiedTopology: true
 });
 
+
+App.use('/api',require('./routes/apiroutes.js'));
 App.use(require('./routes/htmlroutes.js'));
 
 App.listen(PORT, () => console.log(`Listening on port: ${PORT}`));
