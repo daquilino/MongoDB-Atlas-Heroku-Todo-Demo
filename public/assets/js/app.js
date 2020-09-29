@@ -3,7 +3,7 @@ console.log("js loaded.")
 const toDoUl = document.querySelector("#toDoUl");
 const addToDoForm = document.querySelector("#addToDoForm");
 const addToDoInput = document.querySelector("#addToDoInput");
-
+const toggleBtn = document.querySelector(".toggleComplete");
 
 addToDoForm.addEventListener("submit", e => {
    e.preventDefault();
@@ -22,7 +22,6 @@ addToDoForm.addEventListener("submit", e => {
         body: JSON.stringify(newToDo)
     })
     .finally(()=> window.location.reload());
-
 })
 
 
@@ -39,9 +38,19 @@ function loadToDos(){
 
         todos.forEach(todo=>{
 
+            console.log(todo);
+
             const newLi = document.createElement("li")
             newLi.classList.add("list-group-item");
             newLi.innerText = todo.task;
+
+            const newBtn = document.createElement("button");
+            newBtn.classList.add("toggleComplete");
+            newBtn.setAttribute("data-toDoId", todo._id);
+            newBtn.innerText = "Toggle";
+
+            newLi.append(newBtn);
+
 
             toDoUl.append(newLi);
         })
