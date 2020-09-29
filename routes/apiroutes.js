@@ -18,8 +18,18 @@ Router.post("/todo", (req, res) => {
 });
 
 //Update a todo (toggle completed)
-Router.patch("/todo/:id", (req, res) => {
-    res.send("creating todo")
+Router.put("/todo/:id", (req, res) => {
+    ToDo.findById(req.params.id)
+    .then(todo =>{
+
+        todo.completed = !todo.completed;
+        return todo.save()
+    })
+    .then(()=> res.sendStatus(200))
+    .catch(()=> {
+        console.log("something went wrong with update")
+        res.sendStatus(500);
+    })
 });
 
 module.exports = Router;
