@@ -19,9 +19,11 @@ Router.post("/todo", (req, res) => {
 
 //Update a todo (toggle completed)
 Router.put("/todo/:id", (req, res) => {
+
+
     ToDo.findById(req.params.id)
     .then(todo =>{
-
+        // toggles boolean value and saves    
         todo.completed = !todo.completed;
         return todo.save()
     })
